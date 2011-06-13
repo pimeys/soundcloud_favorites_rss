@@ -9,7 +9,6 @@ get '/' do
 end
 
 get '/rss/:user' do	
-
 	resp = Net::HTTP.get(URI.parse("http://api.soundcloud.com/users.json?client_id=#{settings.soundcloud_key}&q=#{params[:user]}&limit=1"))
 	users = JSON.parse(resp)
 	redirect to('/error'), 404 and return if users.empty?

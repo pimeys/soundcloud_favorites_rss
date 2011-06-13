@@ -5,4 +5,9 @@ describe "Soundcloud Favorites" do
     get '/'
     last_response.should be_ok
   end
+
+  it "should generate a RSS feed for user 'pimeys'" do
+    get '/rss/pimeys'
+    last_response.should be_ok
+  end
 end

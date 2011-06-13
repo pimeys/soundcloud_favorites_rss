@@ -7,8 +7,8 @@ xml.rss :version => "2.0" do
     @favorites_top_list.each do |favorite|
       xml.item do
         xml.title favorite[0]
-        xml.link "http://soundcloud.com/#{favorite[0]}"
-        xml.description "#{favorite[0]} has been liked #{favorite[1]} time(s)"
+        xml.link "http://soundcloud.com/#{favorite[1][:link]}"
+        xml.description "#{favorite[0]} has been liked #{favorite[1][:count]} time(s)"
       end
     end
   end  

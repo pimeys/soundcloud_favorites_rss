@@ -3,6 +3,7 @@ require 'json'
 require 'builder'
 require 'rack/cache'
 require 'haml'
+require 'date'
 require File.expand_path(File.dirname(__FILE__) + '/lib/soundcloud')
 require File.expand_path(File.dirname(__FILE__) + '/lib/lastfm')
 
@@ -23,10 +24,10 @@ get '/rss/:user' do
 	if @user
 		@favorites_top_list = SoundCloud.favorites(@user["id"])
 		@favorites_top_list.each do |favorite|
-			favorite[1].merge!({:bio => LastFM.artist_bio(favorite[0])})
+			favorite[1].merge!(LastFM.artist_bio(favorite[0]))
 		end
 
-		haml(:rss, :format => :xhtml, :escape_html => true, :layout => false)
+		haml(:rss, :format => :xhtml, :escape_html => false, :layout => false)
 	else
 		return 404
 	end

@@ -6,6 +6,11 @@ require 'haml'
 require File.expand_path(File.dirname(__FILE__) + '/lib/soundcloud')
 require File.expand_path(File.dirname(__FILE__) + '/lib/lastfm')
 
+use Rack::Cache, {
+	:metastore   => 'heap:/',
+	:entitystore => 'heap:/'
+}
+
 get '/' do
   File.read(File.join('public', 'index.html'))
 end

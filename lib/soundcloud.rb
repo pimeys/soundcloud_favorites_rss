@@ -23,7 +23,7 @@ class SoundCloud
 			if acc[artist]
 				acc[artist][:count] += 1
 			else
-				acc[artist] = {:count => 1, :link => favorite["user"]["permalink"]}
+				acc[artist] = {:count => 1}
 			end
 
 			acc

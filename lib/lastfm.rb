@@ -9,7 +9,11 @@ class LastFM
 		url = URI.parse("#{BASE_URL}/?format=json&method=artist.getinfo&artist=#{CGI::escape(artist)}&api_key=#{settings.lastfm_key}")
 		artist_data = JSON.parse(Net::HTTP.get(url))
 		if artist_data["artist"]
-			{:bio => artist_data["artist"]["bio"]["content"].gsub(/\n/, '<br />'), :summary => artist_data["artist"]["bio"]["summary"]}
+			{
+				:bio => artist_data["artist"]["bio"]["content"].gsub(/\n/, '<br />'), 
+				:summary => artist_data["artist"]["bio"]["summary"],
+				:url => artist_data["artist"]["url"]
+			}
 		else
 			{:bio => "", :summary => ""}
 		end

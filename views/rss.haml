@@ -8,6 +8,6 @@
 	- @favorites_top_list.each do |favorite|
 		%entry
 			%title= favorite[0]
-			%link= favorite[1][:link]
+			%link= favorite[1][:url]
 			%summary= favorite[1][:summary]
 			%content{:type => 'html', 'xml:base' => 'http://google.fi', 'xml:lang' => 'en'}= "<![CDATA[#{favorite[1][:bio]}]]>"

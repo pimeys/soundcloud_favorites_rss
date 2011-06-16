@@ -22,9 +22,9 @@ get '/rss/:user' do
 
 	@user = SoundCloud.find_user(params[:user])
 	if @user
-		@favorites_top_list = SoundCloud.favorites(@user["id"])
-		@favorites_top_list.each do |favorite|
-			favorite[1].merge!(LastFM.artist_bio(favorite[0]))
+		# name, bio, summary and url
+		@top_list = SoundCloud.favorites(@user["id"]).map do |favorite|
+			favorite.merge(LastFM.artist_bio(favorite[:name]))
 		end
 
 		haml(:rss, :format => :xhtml, :escape_html => false, :layout => false)

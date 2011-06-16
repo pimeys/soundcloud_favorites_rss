@@ -15,7 +15,7 @@ class LastFM
 				:url => artist_data["artist"]["url"]
 			}
 		else
-			{:bio => "", :summary => ""}
+			{:bio => "", :summary => "", :url => ""}
 		end
 	end
 end

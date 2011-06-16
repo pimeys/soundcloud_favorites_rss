@@ -8,7 +8,7 @@ xml.rss :version => "2.0" do
       xml.item do
         xml.title favorite[0]
         xml.link "http://soundcloud.com/#{favorite[1][:link]}"
-        xml.description "#{favorite[0]} has been liked #{favorite[1][:count]} time(s)"
+        xml.description favorite[1][:bio]
       end
     end
   end  

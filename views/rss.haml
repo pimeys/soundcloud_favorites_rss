@@ -1,0 +1,11 @@
+!!! XML
+%rss{:version => "2.0", "xmlns:atom" => "http://www.w3.org/2005/Atom"}
+	%channel
+		%title SoundCloud favorites RSS
+		%link= "http://avaruuslenski.org/rss/#{@user['username']}"
+		%description SoundCloud favorited artists' bio
+		- @favorites_top_list.each do |favorite|
+			%item
+				%title= favorite[0]
+				%link= favorite[1][:link]
+				%description= favorite[1][:bio]

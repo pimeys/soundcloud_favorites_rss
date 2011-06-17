@@ -20,7 +20,6 @@ get '/rss/:user' do
   if @user
     # name, bio, summary and url
     @top_list = SoundCloud.favorites(@user["id"]).map do |favorite|
-      debugger
       favorite.merge(LastFM.artist_bio(favorite[:name], favorite[:url]))
     end
 

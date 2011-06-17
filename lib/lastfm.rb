@@ -11,11 +11,10 @@ class LastFM
     if artist_data["artist"]
       {
         :bio => artist_data["artist"]["bio"]["content"].gsub(/\n/, '<br />'), 
-        :summary => artist_data["artist"]["bio"]["summary"],
         :url => artist_data["artist"]["url"]
       }
     else
-      {:bio => "", :summary => "", :url => ""}
+      {:bio => "No content available", :url => ""}
     end
   end
 end

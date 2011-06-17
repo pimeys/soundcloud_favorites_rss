@@ -1,11 +1,13 @@
 !!! XML
 %feed{:xmlns => "http://www.w3.org/2005/Atom"}
   %title SoundCloud favorites RSS
-  %link{:href => "http://avaruuslenski.org/#{@user[:username]}" }
+  %link{:href => "http://avaruuslenski.org/rss/#{@user[:username]}" }
+  %id= "http://avaruuslenski.org/rss/#{@user[:username]}"
   %updated= DateTime.now.to_s
   - @top_list.each do |favorite|
     %entry
       %title= favorite[:name]
-      %link= favorite[:url]
-      %summary= favorite[:summary]
+      %link{:href => favorite[:url]}
+      %id= favorite[:url]
+      %author FeedGenerator
       %content{:type => 'html', 'xml:base' => 'http://google.fi', 'xml:lang' => 'en'}= "<![CDATA[#{favorite[:bio]}]]>"

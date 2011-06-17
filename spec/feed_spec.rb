@@ -9,5 +9,6 @@ describe "Soundcloud Favorites" do
   it "should generate a RSS feed for user 'pimeys'" do
     get '/rss/pimeys'
     last_response.should be_ok
+    last_response["Content-Type"].should eql("application/rss+xml")
   end
 end

@@ -1,13 +1,13 @@
 !!! XML
 %feed{:xmlns => "http://www.w3.org/2005/Atom"}
-	%title SoundCloud favorites RSS
-	%link{:href => "http://avaruuslenski.org/#{@user[:username]}" }
-	%updated= DateTime.now.to_s
-	%author
-		%name Julius de Bruijn
-	- @top_list.each do |favorite|
-		%entry
-			%title= favorite[:name]
-			%link= favorite[:url]
-			%summary= favorite[:summary]
-			%content{:type => 'html', 'xml:base' => 'http://google.fi', 'xml:lang' => 'en'}= "<![CDATA[#{favorite[:bio]}]]>"
+  %title SoundCloud favorites RSS
+  %link{:href => "http://avaruuslenski.org/#{@user[:username]}" }
+  %updated= DateTime.now.to_s
+  %author
+    %name Julius de Bruijn
+  - @top_list.each do |favorite|
+    %entry
+      %title= favorite[:name]
+      %link= favorite[:url]
+      %summary= favorite[:summary]
+      %content{:type => 'html', 'xml:base' => 'http://google.fi', 'xml:lang' => 'en'}= "<![CDATA[#{favorite[:bio]}]]>"

@@ -8,6 +8,7 @@
     %entry
       %title= favorite[:name]
       %link{:href => favorite[:url]}
+      %updated= DateTime.now.to_s
       %id= favorite[:url]
       %author
         %name FeedGenerator

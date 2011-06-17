@@ -19,7 +19,7 @@ class SoundCloud
     resp = JSON.parse(Net::HTTP.get(url))
 
     favorites = resp.reduce([]) do |acc, favorite| 
-      acc << {:name => favorite["user"]["username"]}
+      acc << {:name => favorite["user"]["username"], :url => favorite["user"]["permalink"]}
     end
 
     return favorites.uniq

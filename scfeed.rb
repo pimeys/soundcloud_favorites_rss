@@ -12,10 +12,6 @@ use Rack::Cache, {
   :entitystore => 'heap:/'
 }
 
-get '/' do
-  File.read(File.join('public', 'index.html'))
-end
-
 get '/rss/:user' do 
   content_type 'application/rss+xml'
   cache_control :public, :must_revalidate, :max_age => 60

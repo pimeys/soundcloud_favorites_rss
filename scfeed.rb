@@ -13,7 +13,7 @@ use Rack::Cache, {
 }
 
 get '/rss/:user' do 
-  content_type 'application/rss+xml'
+  content_type 'application/atom+xml'
   cache_control :public, :must_revalidate, :max_age => 60
 
   @user = SoundCloud.find_user(params[:user])

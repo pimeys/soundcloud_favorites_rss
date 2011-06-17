@@ -9,5 +9,5 @@
       %title= favorite[:name]
       %link{:href => favorite[:url]}
       %id= favorite[:url]
-      %author FeedGenerator
+      %author{:name => 'FeedGenerator'}
       %content{:type => 'html', 'xml:base' => 'http://google.fi', 'xml:lang' => 'en'}= "<![CDATA[#{favorite[:bio]}]]>"

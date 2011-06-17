@@ -3,8 +3,6 @@
   %title SoundCloud favorites RSS
   %link{:href => "http://avaruuslenski.org/#{@user[:username]}" }
   %updated= DateTime.now.to_s
-  %author
-    %name Julius de Bruijn
   - @top_list.each do |favorite|
     %entry
       %title= favorite[:name]
